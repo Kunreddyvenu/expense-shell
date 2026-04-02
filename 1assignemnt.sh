@@ -10,10 +10,12 @@ echo "hello world hello devops hello windows hello linux" > sample.txt
 file=sample.txt
 #step 3 process
 echo "top 5 words:"
-tr '[:upper:] [:lower:]' < "$file" | \  #| means commnad output \ go to next line 
-tr -c '[:alnum:]' '\n' | \ # alnum menas alpha and numaric slash n means new line 
-grep -v "^$" | \  # search -v meand exclude ^$ means exclde lines
-sort | uniq -c | sort -nr | head -5 #sort it uniq means duplicate remove -nr menas numeric reverse
+tr '[:upper:] [:lower:]' < "$file" | \
+tr -c '[:alnum:]' '\n' | \
+grep -v "^$" | \
+sort | uniq -c | sort -nr | head -5
+
+#tr '[:upper:]' '[:lower:]' < "$file" | \tr -c '[:alnum:]' '\n' | \grep -v '^$' | \sort | uniq -c | sort -nr | head -5
 
 
 
