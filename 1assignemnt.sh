@@ -10,7 +10,7 @@ echo "hello world hello devops hello windows hello linux" > sample.txt
 file=sample.txt
 #step 3 process
 echo "top 5 words:"
-tr '[:upper:] [:lower:]' < "$file" | \
+tr '[:upper:]' '[:lower:]' < "$file" | \
 tr -c '[:alnum:]' '\n' | \
 grep -v "^$" | \
 sort | uniq -c | sort -nr | head -5
