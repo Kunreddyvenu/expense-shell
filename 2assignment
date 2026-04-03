@@ -1,0 +1,59 @@
+#!bin/bash
+#step1 check arguments
+if [ $# -ne 2 ]; then
+echo "Usage: $0 <source_directoy> <destination directory>"
+exit 1
+fi
+#Assign variables
+source_dir=$1
+dest_dir=$2
+
+if [ ! -d "$source_dir" ]; then
+echo "source_dir does not exists"
+exit 1
+fi
+
+if [ ! -d "$dest_dir" ]; then
+echo "destination directory does not exit"
+#create time stamp
+timestamp=$(date +%F-%H-%M-%S)
+
+#!/bin/bash
+
+# Step 1: Check arguments
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <source_directory> <destination_directory>"
+    exit 1
+fi
+
+# Step 2: Assign variables
+source_dir=$1
+dest_dir=$2
+
+# Step 3: Check if source exists
+if [ ! -d "$source_dir" ]; then
+    echo "Source directory does not exist!"
+    exit 1
+fi
+
+# Step 4: Check if destination exists
+if [ ! -d "$dest_dir" ]; then
+    echo "Destination directory does not exist!"
+    exit 1
+fi
+
+# Step 5: Create timestamp
+timestamp=$(date +%F-%H-%M-%S)
+
+# Step 6: Get source folder name
+folder_name=$(basename "$source_dir")
+
+# Step 7: Create backup file name
+backup_file="${folder_name}_${timestamp}.tar.gz"
+
+# Step 8: Create backup
+tar -czf "$dest_dir/$backup_file" "$source_dir"
+
+# Step 9: Success message
+echo "Backup created successfully!"
+echo "File: $dest_dir/$backup_file"
